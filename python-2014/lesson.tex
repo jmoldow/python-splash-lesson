@@ -1,0 +1,192 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/generic-talks/generic-ornate-15min-45min.en.tex,v 1.5 2007/01/28 20:48:23 tantau Exp $
+
+% This file is a solution template for:
+
+% - Giving a talk on some subject.
+% - The talk is between 15min and 45min long.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+\mode<article>
+{
+  \usepackage{fullpage,hyperref}
+  \hypersetup{
+  colorlinks,%
+  citecolor=black,%
+  filecolor=black,%
+  linkcolor=black,%
+  urlcolor=black,
+  pdftitle={Introduction to Python - MIT ESP},
+  pdfauthor={Jordan Moldow}
+  }
+}
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[latin1]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+
+\title % (optional, use only with long paper titles)
+{Introduction to Python}
+
+\subtitle
+{} % (optional)
+
+\author[Jordan Moldow] % (optional, use only with lots of authors)
+{Jordan Moldow
+}
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[MIT ESP] % (optional, but mostly needed)
+{
+  MIT Educational Studies Program}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[] % (optional)
+{}
+
+%\subject{Talks}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+%\pgfdeclareimage[height=0.5cm]{logo}{../logo.png}
+%\logo{\pgfuseimage{logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+\maketitle
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%\begin{frame}{\only<presentation>{Outline}}
+%  
+%  % You might wish to add the option [pausesections]
+%\end{frame}
+\tableofcontents
+%\pagebreak
+\section{Introduction to Programming}
+
+\begin{frame}{Programming}
+\begin{itemize}
+\item A program is ``a sequence of coded instructions for a computer''
+\item Programming is the coding of these instructions by humans
+\item ``The purpose of programming is to create a program that exhibits a certain desired behavior.''
+\item Programming is ``writing the source code of computer programs''
+\end{itemize}
+\end{frame}
+
+\begin{frame}{General Programming Steps}
+\begin{enumerate}
+\item Pick a programming language
+\item Write ``source code'' inside a text file
+\begin{itemize}
+\item Source code is understandable by humans [who know the language]
+\item Each language has different code syntax
+\end{itemize}
+\item (For compiled languages) A ``compiler'' translates source into binary / machine code that is understandable by computers
+\item Computer executes code
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Writing Python Programs}
+\begin{itemize}
+\item Code can be written and saved using special programming environments -- file type is .py
+\item Code can also be written in a normal text editor
+\begin{itemize}
+\item *nix: vim, emacs, gedit, NOT OpenOffice or LibreOffice
+\item Windows: Notepad, Notepad++, NOT Word
+\end{itemize}
+\item We will use Python IDLE, an officially supported integrated development environment
+\item Python interpreter executes code directly from your source code -- Python is an \textbf{interpretted language}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Python Interpreter}
+\begin{itemize}
+\item The first thing you see after opening Python IDLE is a command prompt
+\item This is a shell for the Python interpreter
+\item Go ahead and type stuff into it
+\item In its most basic form, the interpreter acts like a calculator, supporting all basic mathematical operations and orders of operations
+\item Of course, the shell is infinitely more powerful than this, and we will slowly build up our knowledge of what Python can do
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Writing and Saving Programs}
+\begin{itemize}
+\item No code you write into the interpreter is permanent -- it will be lost when you close the interpreter
+\item You can save code into a file so that you can run it whenever you want
+\item In Python IDLE, File -> New Window opens a Python file, which you can write code into, save, and run
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hello World! Your First Program!}
+\begin{itemize}
+\item A programming tradition -- your first program simply outputs the text \textbf{Hello World!}
+\item ``Output'', in this and most cases, means to write text on the screen
+\end{itemize}
+\end{frame}
+
+%\begin{frame}{hello.cpp}
+%\verbatim{
+%# Program: hello.py
+%print "Hello World!"
+%}
+%\end{frame}
+
+\end{document}
