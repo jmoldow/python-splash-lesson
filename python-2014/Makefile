@@ -11,5 +11,5 @@ all:
   echo pdflatex $*; \
   @pdflatex $*; \
 fi
-	rm -f *.aux *.ps *.bbl *.blg *.tmp *.log *~ *.out *.toc *.nav *.snm
+	rm -f *.aux *.ps *.bbl *.blg *.tmp *.log *~ *.out *.toc *.nav *.snm *.vrb
 
