@@ -350,7 +350,7 @@ print "The value of 17 + 5 is", 17 + 5
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Logical (Boolean) Expressions}
+\begin{frame}[fragile]{Logical (Boolean) Expressions}
   \begin{center}
   \begin{tabular}{|ll|}\hline
     Equality ({\ttfamily ==}) & {\ttfamily 17==5} => {\ttfamily False} \\\hline
@@ -361,6 +361,84 @@ print "The value of 17 + 5 is", 17 + 5
     Less than or equal ({\ttfamily <=}) & {\ttfamily 17<=5} => {\ttfamily False}\\\hline
   \end{tabular}
 \end{center}
+
+\begin{lstlisting}
+print 17 == 17
+print 17 == 5
+print 17 != 5
+print 17 > 5
+print 17 <= 5
+print 17 == (12 + 5)
+print True == True
+print True == False
+\end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]{Variables}
+  \begin{itemize}
+    \item Can store values into memory locations
+    \item Reference this memory with \textbf{variables}
+\begin{lstlisting}
+variable = expression
+\end{lstlisting}
+    \item Computes value of \texttt{expression}, and \textbf{assigns} it to \texttt{variable}
+\begin{lstlisting}
+temperature = 50
+average = (17.5 + 73.9) / 2
+temperature = temperature - 10
+\end{lstlisting}
+\item In the last example, the expression value overwrites the old stored value in memory
+\item Variable name must start with a letter, consists of letters, numbers, and underscores
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 4}
+  \begin{itemize}
+    \item Variables can be used as values, and used in expressions
+    \item So \texttt{print} can display stored values
+\begin{lstlisting}
+temperature = 50
+print temperature
+print temperature - 10
+\end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{User input}
+\begin{lstlisting}
+name = raw_input("What is your name? ")
+print "Your name is", name
+
+temperature = input("What is the temperature? ")
+print "That is", temperature - 32, "above freezing"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Coding Challenge}
+  \begin{itemize}
+    \item Write code to take two numbers of user input, add them together, and print the result.
+    \item Write code to take the temperature in fahrenheit and print it in celsius.
+      \begin{itemize}
+        \item $C = \displaystyle\frac{F - 32}{1.8}$
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Control Flow}
+
+\begin{frame}[fragile]{Conditional Execution with {\ttfamily if}-statements}
+  \begin{itemize}
+    \item Execute a block of code only if an expression is \texttt{True}.
+\begin{lstlisting}
+temperature = input("What is the tempurature? ")
+print "The temperature is", temperature
+if temperature < 32:
+    print "It is below freezing!"
+    print "Don't forget to wear your jacket!"
+\end{lstlisting}
+\item Those messages will only print when the temperature is below 32
+\item \texttt{if}, followed by the true/false expression, followed by a colon
+\item The conditional block must be indented
+  \end{itemize}
+\end{frame}
 \end{document}
