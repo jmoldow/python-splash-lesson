@@ -36,13 +36,15 @@
   language=Python,
   style=python-idle-code,
   showlines=true,
-%  basicstyle=\scriptsize\ttfamily\color{black},
-%  rulesepcolor=\color{black},
-  backgroundcolor=\color{yellow!10},
+  basicstyle=\scriptsize\ttfamily\color{black},
+  rulesepcolor=\color{black},
+  backgroundcolor=\color{white},
+  %backgroundcolor=\color{yellow!10},
 %  identifierstyle=\color{black},
-%  keywordstyle=\bfseries\color{blue},
+  keywordstyle=\bfseries\color{orange},
+  keywordstyle={[2]\bfseries\color{purple2}},
 %  stringstyle=\color{teal},
-%  commentstyle=\itshape\color{red},
+  commentstyle=\itshape\color{red},
   showstringspaces=false,
   numbers=left,
   firstnumber=1,
@@ -53,7 +55,7 @@
   tabsize=2,
   extendedchars=true,
   resetmargins=true,
-%  breaklines=true,
+  breaklines=true,
 }
 }
 
@@ -76,6 +78,7 @@
   rulesepcolor=\color{black},
   identifierstyle=\color{black},
   keywordstyle=\bfseries\color{black},
+  keywordstyle={[2]\bfseries\color{black}},
 %  stringstyle=\color{teal},
   commentstyle=\itshape\color{gray},
   showstringspaces=false,
@@ -203,14 +206,15 @@
 \item Code can be written and saved using special programming environments -- file type is .py
 \item Code can also be written in a normal text editor
 \begin{itemize}
-\item *nix: vim, emacs, gedit, NOT OpenOffice or LibreOffice
-\item Windows: Notepad, Notepad++, NOT Word
+\item Notepad, Notepad++, vim, emacs, gedit, textedit
+\item NOT Word, OpenOffice, LibreOffice
 \end{itemize}
 \item We will use Python IDLE, an officially supported integrated development environment
 \item Python interpreter executes code directly from your source code -- Python is an \textbf{interpretted language}
 \end{itemize}
 \end{frame}
 
+\section{Introduction to Python}
 \begin{frame}{Python Interpreter}
 \begin{itemize}
 \item The first thing you see after opening Python IDLE is a command prompt
@@ -234,16 +238,129 @@
 \item A programming tradition -- your first program simply outputs the text {\ttfamily Hello World!}
 \item ``Output'', in this and most cases, means to write text on the screen
 \begin{lstlisting}
+# Program: hello.py
+
 print "Hello World!"
 \end{lstlisting}
 \end{itemize}
 \end{frame}
 
-%\begin{frame}{hello.cpp}
-%\verbatim{
-%# Program: hello.py
-%print "Hello World!"
-%}
-%\end{frame}
+
+\begin{frame}[fragile]{Basic Python syntax}
+  \begin{itemize}
+    \item Python is CASE SENSITIVE!
+  \begin{itemize}
+    \item This means that {\ttfamily Print "Hello World!"} is WRONG
+  \end{itemize}
+\item {\ttfamily \#} starts a comment
+  \begin{itemize}
+    \item Everything on the line after the {\ttfamily \#} is the comment
+    \item Comments have no effect on the program
+    \item Use them so others can understand your program
+  \end{itemize}
+\item {\ttfamily "} starts and ends a string
+  \begin{itemize}
+    \item A string is a sequence of characters
+    \item If you want the quote character, use {\ttfamily \textbackslash"}
+      \begin{itemize}
+        \item {\ttfamily "\textbackslash"Hello World!\textbackslash""}
+          is the string consisting of the characters
+        {\ttfamily "Hello World!"}
+      \end{itemize}
+  \end{itemize}
+\item Programs are made up of one-line statements:
+\begin{lstlisting}
+do_this_first
+then_do_that
+finally_do_something_else
+\end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 1}
+  \begin{itemize}
+    \item This statement is used for outputting text on the screen
+    \item {\ttfamily print "Hello World!"} outputs {\ttfamily Hello World!}
+  \item {\ttfamily print "text"} outputs {\ttfamily text} (literally)
+  \item Don't forget the space after {\ttfamily print}, and the quotation marks!
+  \item The enclosing quotation marks don't show up in the output
+  \item After the text, a line break is output
+  \item Can include line break in string with {\ttfamily \textbackslash n} character
+  \end{itemize}
+\end{frame}
+
+\section{Expressions and Variables}
+
+\begin{frame}{So wait, can Python do anything besides print messages?}
+  \begin{itemize}
+    \item Yes, it can!
+    \item Python can calculate the results of expressions
+    \item Python can store and manipulate data using variables
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Literals}
+  \begin{itemize}
+    \item The building blocks of expressions
+    \item A basic representation of a simple value
+    \item Integer literals - {\ttfamily 0}, {\ttfamily 17}, {\ttfamily -10}, etc.
+    \item Floating point literals - {\ttfamily 1.0}, {\ttfamily 3.14159}, etc.
+    \item String literals - {\ttfamily "Hello World!"}, etc.
+    \item Boolean literals - {\ttfamily True}, {\ttfamily False}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 2}
+  \begin{itemize}
+    \item Can be used to print any literal
+  \end{itemize}
+\begin{lstlisting}
+print 17
+print 3.14159
+print "Hello World!"
+print True
+print False
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Arithmetic Expressions}
+  \begin{center}
+  \begin{tabular}{|ll|ll|}\hline
+    Addition ({\ttfamily +}) & {\ttfamily 17+5} => {\ttfamily 22}  & Subtraction ({\ttfamily -}) & {\ttfamily 17-5} => {\ttfamily 12} \\\hline
+    Multiplication ({\ttfamily *}) & {\ttfamily 17*5} => {\ttfamily 85} & Division ({\ttfamily /}) & {\ttfamily 17/5} => {\ttfamily 3}\\\hline
+    Modulus ({\ttfamily \%}) & {\ttfamily 17\%5} => {\ttfamily 2} & Parenthesis ({\ttfamily ()}) & {\ttfamily (17+5)*2}\\\hline
+    Negative ({\ttfamily -}) & {\ttfamily -(17+5)} & & \\\hline
+  \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 3}
+  \begin{itemize}
+    \item Can be used to print any expression
+\begin{lstlisting}
+print 17 + 5
+print 17 - 5
+print 17 % 5
+\end{lstlisting}
+\item Can print multiple expressions on one line
+\begin{lstlisting}
+print "The value of 17 + 5 is", 17 + 5
+\end{lstlisting}
+\item IDLE shell can print expressions without typing {\ttfamily print}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Logical (Boolean) Expressions}
+  \begin{center}
+  \begin{tabular}{|ll|}\hline
+    Equality ({\ttfamily ==}) & {\ttfamily 17==5} => {\ttfamily False} \\\hline
+    Inequality ({\ttfamily !=}) & {\ttfamily 17!=5} => {\ttfamily True}\\\hline
+    Greater than ({\ttfamily >}) & {\ttfamily 17>5} => {\ttfamily True}\\\hline
+    Greater than or equal ({\ttfamily >=}) & {\ttfamily 17>=5} => {\ttfamily True}\\\hline
+    Less than ({\ttfamily <}) & {\ttfamily 17<5} => {\ttfamily False}\\\hline
+    Less than or equal ({\ttfamily <=}) & {\ttfamily 17<=5} => {\ttfamily False}\\\hline
+  \end{tabular}
+\end{center}
+\end{frame}
 
 \end{document}
