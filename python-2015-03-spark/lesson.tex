@@ -441,4 +441,63 @@ if temperature < 32:
 \item The conditional block must be indented
   \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]{Conditional Execution with {\ttfamily else}-statements}
+  \begin{itemize}
+    \item Execute a block of code only if the immediately preceeding \texttt{if}-statement was \texttt{False}
+\begin{lstlisting}
+temperature = input("What is the temperature? ")
+print "The temperature is", temperature
+if temperature < 32:
+    print "It is below freezing!"
+else:
+    print "It is", temperature - 32, "degrees above freezing"
+\end{lstlisting}
+\item \texttt{if}-statement and block, followed by un-indented \texttt{else:} (with colon)
+\item The conditional block must be indented
+  \end{itemize}
+\end{frame}
+
+\pagebreak
+
+\begin{frame}[fragile]{Conditional Execution with {\ttfamily elif}-statements}
+  \begin{itemize}
+    \item Execute a block of code only if all the immediately preceeding \texttt{if} and \texttt{elif}-statements were \texttt{False}
+\begin{lstlisting}
+temperature = input("What is the temperature? ")
+print "The temperature is", temperature
+if temperature < 32:
+    print "It is below freezing!"
+elif temperature == 32:
+    print "We're at the freezing point!"
+elif temperature < 100:
+    print "It is", temperature - 32, "degrees above freezing"
+else:
+    print "It is really hot!"
+\end{lstlisting}
+\item Un-indented \texttt{elif}, followed by the true/false expression, followed by a colon
+\item The conditional block must be indented
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Coding Challenge}
+  \begin{itemize}
+    \item Write code to take two numbers of user input, ask the user for an operation (addition, subtraction, etc.), and print the result.
+    \item Write code to take the temperature in fahrenheit and print it in celsius, or do the reverse, depending on user input.
+      \begin{itemize}
+        \item $C = \displaystyle\frac{F - 32}{1.8}$
+        \item $F = (1.8 \times C) + 32$
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{More Learning Resources}
+  \begin{itemize}
+    \item https://docs.python.org/2/
+    \item https://docs.python.org/2/tutorial/index.html
+    \item https://www.python.org/downloads/release/python-279/
+    \item http://www.codecademy.com/en/tracks/python
+  \end{itemize}
+\end{frame}
+
 \end{document}
