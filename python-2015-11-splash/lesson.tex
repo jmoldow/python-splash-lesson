@@ -21,7 +21,7 @@
 % notice. 
 
 
-\usepackage{listings}
+\usepackage{listings,graphicx}
 \input{/usr/share/texlive/texmf-dist/tex/latex/listings/listings-python.prf}
 
 \mode<presentation>
@@ -177,72 +177,176 @@
 \tableofcontents
 \end{frame}
 %\pagebreak
+
+\hypersetup{
+  colorlinks=true,%
+  citecolor=blue,%
+  filecolor=blue,%
+  linkcolor=blue,%
+  urlcolor=blue,
+}
+
+\begin{frame}{Learning Goals for this Lesson}
+  \begin{enumerate}
+    \item Know what programming is
+    \item Have an idea of the power of programming
+    \item Know how to get started with a Python coding environment
+    \item Be able to write simple Python programs that print text
+    \item Be able to use expressions to calculate values from multiple pieces
+    \item Be able to assign to, and manipulate, variables
+    \item Be able to work with user input
+    \item Be able to use conditionals to control the flow of programs
+    \item Apply all of the above concepts to solve math challenges or create simple games
+  \end{enumerate}
+\end{frame}
+
 \section{Introduction to Programming}
 
-\begin{frame}{Programming}
+\begin{frame}{What does a program do?}
 \begin{itemize}
-\item A program is ``a sequence of coded instructions for a computer''
-\item Programming is the coding of these instructions by humans
-\item ``The purpose of programming is to create a program that exhibits a certain desired behavior.''
-\item Programming is ``writing the source code of computer programs''
+\item Provides instructions to a computer
+\item Produces output
+  \begin{itemize}
+    \item Print text to console
+    \item Write to file
+    \item Draw on screen
+  \end{itemize}
+\item Acts on input
+  \begin{itemize}
+    \item Keyboard presses
+    \item Mouse clicks
+    \item File contents
+  \end{itemize}
 \end{itemize}
+%\item Programming is the coding of these instructions by humans
+%\item Programming is ``writing the source code of computer programs''
+\begin{center}
+\includegraphics[scale=.2]{program-input-output.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{What does a programmer do?}
+\begin{itemize}
+  \item Write human-readable ``source code''
+  \item Use another program to interpret that as machine instructions
+\end{itemize}
+\begin{center}
+\includegraphics[scale=.34]{human-source-machine.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Why do we care about programming?}
+  \begin{center}
+    \includegraphics[scale=.30]{logos.png}
+  \end{center}
 \end{frame}
 
 \begin{frame}{General Programming Steps}
 \begin{enumerate}
 \item Pick a programming language
 \item Write ``source code'' inside a text file
-\begin{itemize}
-\item Source code is understandable by humans [who know the language]
-\item Each language has different code syntax
-\end{itemize}
-\item (For compiled languages) A ``compiler'' translates source into binary / machine code that is understandable by computers
+\item Use ``compiler'' or ``interpreter`` to translate source into binary / machine code that is understandable by computers
 \item Computer executes code
 \end{enumerate}
+\begin{center}
+\includegraphics[scale=.34]{human-source-machine.png}
+\end{center}
 \end{frame}
 
-\begin{frame}{Writing Python Programs}
+\begin{frame}{Compilers vs. Interpreters}
 \begin{itemize}
-\item Code can be written and saved using special programming environments -- file type is .py
-\item Code can also be written in a normal text editor
+\item Compiler outputs machine code into new file
+  \begin{itemize}
+    \item This binary file is executable
+  \end{itemize}
+\item Interpreter immediately executes machine code
+  \begin{itemize}
+    \item The source code file is executable by interpreter
+    \item Python is an interpreted language
+  \end{itemize}
+\end{itemize}
+\begin{center}
+\includegraphics[scale=.34]{human-source-machine.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Python Programs}
 \begin{itemize}
-\item Notepad, Notepad++, vim, emacs, gedit, textedit
+\item Source code file type is .py
+\item Code is written in a text editor
+\begin{itemize}
+\item Notepad, Notepad++, vim, emacs, gedit, textedit, etc.
 \item NOT Word, OpenOffice, LibreOffice
 \end{itemize}
-\item We will use Python IDLE, an officially supported integrated development environment
-\item Python interpreter executes code directly from your source code -- Python is an \textbf{interpretted language}
+\item Use the program called python (the interpreter) to execute code
+\item Optionally, an IDE can do both steps
+  \begin{itemize}
+    \item Python IDLE
+    \item Web IDEs, e.g. \url{https://repl.it/languages/python3}
+  \end{itemize}
 \end{itemize}
 \end{frame}
 
 \section{Introduction to Python}
-\begin{frame}{Python Interpreter}
+
+\begin{frame}{Getting Set Up}
+Instructions
+\begin{enumerate}
+  \item Log in to your computer
+  \item Open the web browser
+  \item Go to \url{https://repl.it/languages/python3}
+  \item Type something on line 1 in the left box
+  \item Press ``save''
+  \item Email the link to yourself, or write it down
+\end{enumerate}
+\begin{center}
+\includegraphics[scale=.2]{repl.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{repl.it Python Interpreter}
 \begin{itemize}
-\item The first thing you see after opening Python IDLE is a command prompt
-\item This is a shell for the Python interpreter
-\item Go ahead and type stuff into it
+\item Left side is source code, right side is interactive interpreter
+\item Type stuff into the right and press ``Enter'' key
+\item Type stuff into the left and press ``run'' button
+  \begin{itemize}
+    \item Don't forget to press ``save'' button periodically
+  \end{itemize}
 \item In its most basic form, the interpreter acts like a calculator, supporting all basic mathematical operations and orders of operations
-\item Of course, the shell is infinitely more powerful than this, and we will slowly build up our knowledge of what Python can do
+\item Of course, Python is infinitely more powerful than this, and we will slowly build up our knowledge of what it can do
 \end{itemize}
+\begin{center}
+\includegraphics[scale=.2]{repl.png}
+\end{center}
 \end{frame}
 
 \begin{frame}{Writing and Saving Programs}
 \begin{itemize}
-\item No code you write into the interpreter is permanent -- it will be lost when you close the interpreter
-\item You can save code into a file so that you can run it whenever you want
-\item In Python IDLE, File -> New Window opens a Python file, which you can write code into, save, and run
+\item No code you write into the interpreter on the right is permanent -- it will be lost when you re-run programs from the left
+\item For simple one-line statements, use the interpreter on the right to try them out
+\item For anything longer, write it into the program window, then ``save'' and ``run''
 \end{itemize}
+\begin{center}
+\includegraphics[scale=.2]{repl.png}
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Hello World! Your First Program!}
 \begin{itemize}
 \item A programming tradition -- your first program simply outputs the text {\ttfamily Hello World!}
 \item ``Output'', in this and most cases, means to write text on the screen
+\end{itemize}
+Instructions
+\begin{enumerate}
+  \item Copy this program into the program window on the left
 \begin{lstlisting}
 # Program: hello.py
 
-print "Hello World!"
+print("Hello World!")
 \end{lstlisting}
-\end{itemize}
+\item Press ``save''
+\item Press ``run''
+  \end{enumerate}
 \end{frame}
 
 
@@ -250,7 +354,7 @@ print "Hello World!"
   \begin{itemize}
     \item Python is CASE SENSITIVE!
   \begin{itemize}
-    \item This means that {\ttfamily Print "Hello World!"} is WRONG
+    \item This means that {\ttfamily Print("Hello World!")} is WRONG
   \end{itemize}
 \item {\ttfamily \#} starts a comment
   \begin{itemize}
@@ -277,12 +381,12 @@ finally_do_something_else
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 1}
+\begin{frame}[fragile]{The {\ttfamily print} Function - Part 1}
   \begin{itemize}
-    \item This statement is used for outputting text on the screen
-    \item {\ttfamily print "Hello World!"} outputs {\ttfamily Hello World!}
-  \item {\ttfamily print "text"} outputs {\ttfamily text} (literally)
-  \item Don't forget the space after {\ttfamily print}, and the quotation marks!
+    \item This function is used for outputting text on the screen
+    \item {\ttfamily print("Hello World!")} outputs {\ttfamily Hello World!}
+    \item {\ttfamily print("text")} outputs {\ttfamily text} (literally)
+  \item Don't forget the parentheses and the quotation marks!
   \item The enclosing quotation marks don't show up in the output
   \item After the text, a line break is output
   \item Can include line break in string with {\ttfamily \textbackslash n} character
@@ -310,67 +414,71 @@ finally_do_something_else
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 2}
+\begin{frame}[fragile]{The {\ttfamily print} Function - Part 2}
   \begin{itemize}
     \item Can be used to print any literal
   \end{itemize}
 \begin{lstlisting}
-print 17
-print 3.14159
-print "Hello World!"
-print True
-print False
+print(17)
+print(3.14159)
+print("Hello World!")
+print(True)
+print(False)
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Arithmetic Expressions}
   \begin{center}
-  \begin{tabular}{|ll|ll|}\hline
-    Addition ({\ttfamily +}) & {\ttfamily 17+5} => {\ttfamily 22}  & Subtraction ({\ttfamily -}) & {\ttfamily 17-5} => {\ttfamily 12} \\\hline
-    Multiplication ({\ttfamily *}) & {\ttfamily 17*5} => {\ttfamily 85} & Division ({\ttfamily /}) & {\ttfamily 17/5} => {\ttfamily 3}\\\hline
-    Modulus ({\ttfamily \%}) & {\ttfamily 17\%5} => {\ttfamily 2} & Parenthesis ({\ttfamily ()}) & {\ttfamily (17+5)*2}\\\hline
-    Negative ({\ttfamily -}) & {\ttfamily -(17+5)} & & \\\hline
+  \begin{tabular}{|l|l|l|}\hline
+    Addition ({\ttfamily +}) & {\ttfamily 17+5} & {\ttfamily 22} \\\hline
+    Subtraction ({\ttfamily -}) & {\ttfamily 17-5} & {\ttfamily 12} \\\hline
+    Multiplication ({\ttfamily *}) & {\ttfamily 17*5} & {\ttfamily 85} \\\hline
+    Division ({\ttfamily /}) & {\ttfamily 17/5} & {\ttfamily 3.3999999999999999}\\\hline
+    Integer Division ({\ttfamily //}) & {\ttfamily 17//5} & {\ttfamily 3}\\\hline
+    Modulus ({\ttfamily \%}) & {\ttfamily 17\%5} & {\ttfamily 2} \\\hline
+      Parenthesis ({\ttfamily ()}) & {\ttfamily (17+5)*2} & {\ttfamily 44} \\\hline
+    Negative ({\ttfamily -}) & {\ttfamily -(17+5)} & {\ttfamily -22} \\\hline
   \end{tabular}
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 3}
+\begin{frame}[fragile]{The {\ttfamily print} Function - Part 3}
   \begin{itemize}
     \item Can be used to print any expression
 \begin{lstlisting}
-print 17 + 5
-print 17 - 5
-print 17 % 5
+print(17 + 5)
+print(17 - 5)
+print(17 % 5)
 \end{lstlisting}
 \item Can print multiple expressions on one line
 \begin{lstlisting}
-print "The value of 17 + 5 is", 17 + 5
+print("The value of 17 + 5 is", 17 + 5)
 \end{lstlisting}
-\item IDLE shell can print expressions without typing {\ttfamily print}
+\item Interactive interpreter can print expressions without typing {\ttfamily print}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Logical (Boolean) Expressions}
   \begin{center}
-  \begin{tabular}{|ll|}\hline
-    Equality ({\ttfamily ==}) & {\ttfamily 17==5} => {\ttfamily False} \\\hline
-    Inequality ({\ttfamily !=}) & {\ttfamily 17!=5} => {\ttfamily True}\\\hline
-    Greater than ({\ttfamily >}) & {\ttfamily 17>5} => {\ttfamily True}\\\hline
-    Greater than or equal ({\ttfamily >=}) & {\ttfamily 17>=5} => {\ttfamily True}\\\hline
-    Less than ({\ttfamily <}) & {\ttfamily 17<5} => {\ttfamily False}\\\hline
-    Less than or equal ({\ttfamily <=}) & {\ttfamily 17<=5} => {\ttfamily False}\\\hline
+  \begin{tabular}{|l|l|l|}\hline
+    Equality ({\ttfamily ==}) & {\ttfamily 17==5} & {\ttfamily False} \\\hline
+    Inequality ({\ttfamily !=}) & {\ttfamily 17!=5} & {\ttfamily True}\\\hline
+    Greater than ({\ttfamily >}) & {\ttfamily 17>5} & {\ttfamily True}\\\hline
+    Greater than or equal ({\ttfamily >=}) & {\ttfamily 17>=5} & {\ttfamily True}\\\hline
+    Less than ({\ttfamily <}) & {\ttfamily 17<5} & {\ttfamily False}\\\hline
+    Less than or equal ({\ttfamily <=}) & {\ttfamily 17<=5} & {\ttfamily False}\\\hline
   \end{tabular}
 \end{center}
 
 \begin{lstlisting}
-print 17 == 17
-print 17 == 5
-print 17 != 5
-print 17 > 5
-print 17 <= 5
-print 17 == (12 + 5)
-print True == True
-print True == False
+print(17 == 17)
+print(17 == 5)
+print(17 != 5)
+print(17 > 5)
+print(17 <= 5)
+print(17 == (12 + 5))
+print(True == True)
+print(True == False)
 \end{lstlisting}
 \end{frame}
 
@@ -392,25 +500,25 @@ temperature = temperature - 10
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{The {\ttfamily print} Statement - Part 4}
+\begin{frame}[fragile]{The {\ttfamily print} Function - Part 4}
   \begin{itemize}
     \item Variables can be used as values, and used in expressions
     \item So \texttt{print} can display stored values
 \begin{lstlisting}
 temperature = 50
-print temperature
-print temperature - 10
+print(temperature)
+print(temperature - 10)
 \end{lstlisting}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{User input}
 \begin{lstlisting}
-name = raw_input("What is your name? ")
-print "Your name is", name
+name = input("What is your name? ")
+print("Your name is", name)
 
-temperature = input("What is the temperature? ")
-print "That is", temperature - 32, "above freezing"
+temperature = int(input("What is the temperature? "))
+print("That is", temperature - 32, "above freezing")
 \end{lstlisting}
 \end{frame}
 
@@ -430,11 +538,11 @@ print "That is", temperature - 32, "above freezing"
   \begin{itemize}
     \item Execute a block of code only if an expression is \texttt{True}.
 \begin{lstlisting}
-temperature = input("What is the tempurature? ")
-print "The temperature is", temperature
+temperature = int(input("What is the tempurature? "))
+print("The temperature is", temperature)
 if temperature < 32:
-    print "It is below freezing!"
-    print "Don't forget to wear your jacket!"
+    print("It is below freezing!")
+    print("Don't forget to wear your jacket!")
 \end{lstlisting}
 \item Those messages will only print when the temperature is below 32
 \item \texttt{if}, followed by the true/false expression, followed by a colon
@@ -446,12 +554,12 @@ if temperature < 32:
   \begin{itemize}
     \item Execute a block of code only if the immediately preceeding \texttt{if}-statement was \texttt{False}
 \begin{lstlisting}
-temperature = input("What is the temperature? ")
-print "The temperature is", temperature
+temperature = int(input("What is the temperature? "))
+print("The temperature is", temperature)
 if temperature < 32:
-    print "It is below freezing!"
+    print("It is below freezing!")
 else:
-    print "It is", temperature - 32, "degrees above freezing"
+    print("It is", temperature - 32, "degrees above freezing")
 \end{lstlisting}
 \item \texttt{if}-statement and block, followed by un-indented \texttt{else:} (with colon)
 \item The conditional block must be indented
@@ -464,23 +572,23 @@ else:
   \begin{itemize}
     \item Execute a block of code only if all the immediately preceeding \texttt{if} and \texttt{elif}-statements were \texttt{False}
 \begin{lstlisting}
-temperature = input("What is the temperature? ")
-print "The temperature is", temperature
+temperature = int(input("What is the temperature? "))
+print("The temperature is", temperature)
 if temperature < 32:
-    print "It is below freezing!"
+    print("It is below freezing!")
 elif temperature == 32:
-    print "We're at the freezing point!"
+    print("We're at the freezing point!")
 elif temperature < 100:
-    print "It is", temperature - 32, "degrees above freezing"
+    print("It is", temperature - 32, "degrees above freezing")
 else:
-    print "It is really hot!"
+    print("It is really hot!")
 \end{lstlisting}
 \item Un-indented \texttt{elif}, followed by the true/false expression, followed by a colon
 \item The conditional block must be indented
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Coding Challenge}
+\begin{frame}{Coding Challenge Ideas}
   \begin{itemize}
     \item Write code to take two numbers of user input, ask the user for an operation (addition, subtraction, etc.), and print the result.
     \item Write code to take the temperature in fahrenheit and print it in celsius, or do the reverse, depending on user input.
@@ -488,15 +596,19 @@ else:
         \item $C = \displaystyle\frac{F - 32}{1.8}$
         \item $F = (1.8 \times C) + 32$
       \end{itemize}
+    \item Write a basic game, such as rock-paper-scissors.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{More Learning Resources}
   \begin{itemize}
-    \item https://docs.python.org/2/
-    \item https://docs.python.org/2/tutorial/index.html
-    \item https://www.python.org/downloads/release/python-279/
-    \item http://www.codecademy.com/en/tracks/python
+    \item \url{https://docs.python.org/3/}
+    \item \url{https://docs.python.org/3/tutorial/index.html}
+    \item \url{https://www.python.org/downloads/release/python-350/}
+    \item \url{https://en.wikibooks.org/wiki/Python\_Programming}
+    \item \url{http://www.diveintopython3.net/}
+    \item \url{http://www.codecademy.com/en/tracks/python}
+    \item \url{https://wiki.python.org/moin/PythonBooks}
   \end{itemize}
 \end{frame}
 
